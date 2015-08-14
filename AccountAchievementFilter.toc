@@ -1,0 +1,8 @@
+## Title: Account Achievement Filter
+## Description: Adding a fourth Option to the Achievement frame, that shows only Achievements, that are not completed by this ACCOUNT.
+## Description-deDE: Fügt der Erfolgsübersicht eine vierte Option hinzu, welche nur Erfolge anzeigt, die auf dem ACCOUNT noch nicht erfüllt sind.
+## Author: Ignifazius
+## Interface: 602000
+## Version: 1.0
+
+AccountAchievementFilter.lua
