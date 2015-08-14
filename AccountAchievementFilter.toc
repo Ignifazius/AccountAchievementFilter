@@ -5,4 +5,7 @@
 ## Interface: 602000
 ## Version: 1.0
 
+localization.core.lua
+localization.de.lua
+localization.en.lua
 AccountAchievementFilter.lua

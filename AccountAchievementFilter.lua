@@ -1,6 +1,6 @@
 local _, L = ...;
 
-local frame = CreateFrame ("Button", "HideAchievementsOfOtherCharactersHiddenFrame", UIParent)
+local frame = CreateFrame ("Button", "AccAvFFrame", UIParent)
 frame:RegisterEvent("ADDON_LOADED")
 frame:SetScript("OnEvent", function (self,event,...)
 	if event == "ADDON_LOADED" then
@@ -10,7 +10,7 @@ end)
 
 function addFourthOption()
 	ACHIEVEMENT_FILTER_ACCOUNT_INCOMPLETE = 4;
-	ACHIEVEMENTFRAME_FILTER_ACCOUNT_INCOMPLETE = "Account Incomplete";--L["AccIncompleteDropdownShort"];
+	ACHIEVEMENTFRAME_FILTER_ACCOUNT_INCOMPLETE = L["Account Incomplete"];
 	local original_AchievementFrameFilters = AchievementFrameFilters;
 	AchievementFrameFilters = { 
 		{text=ACHIEVEMENTFRAME_FILTER_ALL, func= AchievementFrame_GetCategoryNumAchievements_All},
@@ -19,7 +19,7 @@ function addFourthOption()
 		{text=ACHIEVEMENTFRAME_FILTER_ACCOUNT_INCOMPLETE, func=AchievementFrame_GetCategoryNumAchievements_AccIncomplete}
 		};
 	
-	ACHIEVEMENT_FILTER_ACCOUNT_INCOMPLETE_EXPLANATION = "Show all achievements not already completed by this ACCOUNT"--L["AccIncompleteText"];
+	ACHIEVEMENT_FILTER_ACCOUNT_INCOMPLETE_EXPLANATION = L["Show all achievements not already completed by this ACCOUNT"];
 	
 	local orig_AchievementFrameFilterStrings = AchievementFrameFilterStrings;
 	AchievementFrameFilterStrings = {ACHIEVEMENT_FILTER_ALL_EXPLANATION, 
