@@ -3,7 +3,8 @@
 ## Description-deDE: Fügt der Erfolgsübersicht eine vierte Option hinzu, welche nur Erfolge anzeigt, die auf dem ACCOUNT noch nicht erfüllt sind.
 ## Author: Ignifazius
 ## Interface: 70000
-## Version: 1.3
+## Version: 2
+## SavedVariablesPerCharacter: WelcomeBool, BlizzardFixBool
 
 localization.core.lua
 localization.de.lua
