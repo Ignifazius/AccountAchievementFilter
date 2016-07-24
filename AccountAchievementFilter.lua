@@ -27,16 +27,20 @@ ACHIEVEMENT_FILTER_COMPLETE_EXPLANATION, ACHIEVEMENT_FILTER_INCOMPLETE_EXPLANATI
 end
 		
 function AchievementFrame_GetCategoryNumAchievements_AccIncomplete(category) --create function for option 4
-	local total, _, missing = GetCategoryNumAchievements (category);
+	--print("debug: "..category)
+	local total, completed, missing = GetCategoryNumAchievements (category);
+	local TEMPmissing = total - completed;
 	if (not AchievementFrame_IsFeatOfStrength()) then
-		for i = total - missing + 1, total do
+		--for i = total - missing + 1, total do
+		for i = total - TEMPmissing + 1, total do
 			local _, _, _, c1, _, _, _, _, _, _, _, _, c2, c3 = GetAchievementInfo(category, i);
 			if (c1 or c2 or c3) then
-				missing = missing - 1;
+				TEMPmissing = TEMPmissing - 1;
 			end
 		end
 	end
-	return missing, 0, total - missing;
+	--return missing, 0, total - missing;
+	return TEMPmissing, 0, total - TEMPmissing;
 end
 
 
