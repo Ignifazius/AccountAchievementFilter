@@ -7,5 +7,9 @@ if ((GetLocale() == "enUS") or (GetLocale() == "enGB")) then
 	L["Welcome to|cff33FFFF AccountAchievementFilter|r! There is a bug affecting the |cffFF9933incomplete|r option in your achievements. You can enable a fix from the option menu of this addon (currently"] = "Welcome to|cff33FFFF AccountAchievementFilter|r! There is a bug affecting the |cffFF9933incomplete|r option in your achievements. You can enable a fix from the option menu of this addon (currently";
 	L["enabled"] = "enabled";
 	L["disabled"] = "disabled";
+	L["Use AV \"incomplete\" fix"] = "Use AV \"incomplete\" fix";
+    L["Fixes a current bug in GetCategoryNumAchievements(). This MAY break stuff in future blizzard updates."] = "Fixes a current bug in GetCategoryNumAchievements(). This MAY break stuff in future blizzard updates.";
+	L["Display welcome message"] = "Display welcome message";
+    L["Enables the display of the welcome message after login."] = "Enables the display of the welcome message after login.";
 end
 

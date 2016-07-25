@@ -86,14 +86,14 @@ function AccountAchievementFilter_CreateConfigFrame()
     configTitle:SetText("Account Achievement Filter")
 
     configFix = AccountAchievementFilter_CreateCheckbox(
-    	"Use AV \"incomplete\" fix",
-    	"Fixes a current bug in GetCategoryNumAchievements(). This MAY break stuff in future blizzard updates.",
+    	L["Use AV \"incomplete\" fix"],
+    	L["Fixes a current bug in GetCategoryNumAchievements(). This MAY break stuff in future blizzard updates."],
     	function(self, value) AccountAchievementFilter_FixBlizzardBugMENUBUTTON(value) end)
     configFix:SetPoint("TOPLEFT", configTitle, "BOTTOMLEFT", 0, -8)
 	
 	configWelcome = AccountAchievementFilter_CreateCheckbox(
-    	"Display welcome message",
-    	"Enables the display of the welcome message after login.",
+    	L["Display welcome message"],
+    	L["Enables the display of the welcome message after login."],
     	function(self, value) AccountAchievementFilter_DisplayWelcome(value) end)
     configWelcome:SetPoint("TOPLEFT", configFix, "BOTTOMLEFT", 0, -8)
 	

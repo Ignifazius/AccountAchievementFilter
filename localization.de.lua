@@ -7,5 +7,9 @@ if GetLocale() == "deDE" then
 	L["Welcome to|cff33FFFF AccountAchievementFilter|r! There is a bug affecting the |cffFF9933incomplete|r option in your achievements. You can enable a fix from the option menu of this addon (currently"] = "WiIlkommen bei|cff33FFFF AccountAchievementFilter|r! Zur Zeit exisiert ein Fehler, welcher die|cffFF9933unvollständig|r Option in den Erfolgen beeinflusst. Ein Fix für dieses Problem kann im Menu dieses Addons aktiviert werden (zur Zeit ";
 	L["enabled"] = "aktiviert";
 	L["disabled"] = "deaktiviert";
+	L["Use AV \"incomplete\" fix"] = "AV-Fix nutzen";
+    L["Fixes a current bug in GetCategoryNumAchievements(). This MAY break stuff in future blizzard updates."] = "Behebt einen Fehler in GetCategoryNumAchievements(). Dies KANN zu Fehlern in zukünfitgen Patches von Blizzard führen.";
+	L["Display welcome message"] = "Willkommensnachricht anzeigen";
+    L["Enables the display of the welcome message after login."] = "Aktiviert die Willkommensnachricht beim Einloggen.";
 end
 
