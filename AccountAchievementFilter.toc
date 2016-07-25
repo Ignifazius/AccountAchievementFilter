@@ -5,6 +5,7 @@
 ## Interface: 70000
 ## Version: 2.0
 ## SavedVariablesPerCharacter: WelcomeBool, BlizzardFixBool
+## OptionalDeps: ElvUI
 
 localization.core.lua
 localization.de.lua
