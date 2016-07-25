@@ -1,7 +1,7 @@
 ## Title: Account Achievement Filter
 ## Description: Adding a fourth option to the achievement frame, that shows only achievements, that are not completed by this ACCOUNT.
 ## Description-deDE: Fügt der Erfolgsübersicht eine vierte Option hinzu, welche nur Erfolge anzeigt, die auf dem ACCOUNT noch nicht erfüllt sind.
-## Description-ptBR: 
+## Description-ptBR: Este addon adiciona uma quarta opção na guia de Conquista. Com esta opção, você pode esconder todas as conquistas concluídas, incluindo as que você fez com outros personagens na mesma conta.
 ## Author: Ignifazius
 ## Interface: 70000
 ## Version: 2.2
