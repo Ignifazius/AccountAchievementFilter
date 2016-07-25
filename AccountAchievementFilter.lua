@@ -125,18 +125,18 @@ end
 function AccountAchievementFilter_FixBlizzardBugMENUBUTTON(bool)
 	if bool then
 	--DEFAULT_CHAT_FRAME:AddMessage(wname.." pinged by: |cffFF0000" .. ping_name .. "|r")
-		DEFAULT_CHAT_FRAME:AddMessage("|cff33FFFF AccountAchievementFilter|r: AV fix|cff33FF33 enabled|r. It will become active after you reload/relog.")
+		DEFAULT_CHAT_FRAME:AddMessage(L["|cff33FFFF AccountAchievementFilter|r: AV fix|cff33FF33 enabled|r. It will become active after you reload/relog."])
 	else
-		DEFAULT_CHAT_FRAME:AddMessage("|cff33FFFF AccountAchievementFilter|r: AV fix|cffFF0000 disabled|r. It will become active after you reload/relog.")
+		DEFAULT_CHAT_FRAME:AddMessage(L["|cff33FFFF AccountAchievementFilter|r: AV fix|cffFF0000 disabled|r. It will become active after you reload/relog."])
 	end
 	return AccountAchievementFilter_FixBlizzardBug(bool)
 end
 
 function AccountAchievementFilter_getEnabled()
 	if blizzFix then
-		return "|cff33FF33 enabled|r"
+		return "|cff33FF33 "..L["enabled"].."|r"
 	else
-		return "|cffFF0000 disabled|r"
+		return "|cffFF0000 "..L["disabled"].."|r"
 	end	
 end
 
@@ -147,7 +147,7 @@ end
 
 function AccountAchievementFilter_WelcomeMessage()
 	if (WelcomeBool) then
-		DEFAULT_CHAT_FRAME:AddMessage("Welcome to|cff33FFFF AccountAchievementFilter|r! There is a bug affecting the |cffFF9933incomplete|r option in your achievements. You can enable a fix from the option menu of this addon (currently"..AccountAchievementFilter_getEnabled()..").")
+		DEFAULT_CHAT_FRAME:AddMessage(L["Welcome to|cff33FFFF AccountAchievementFilter|r! There is a bug affecting the |cffFF9933incomplete|r option in your achievements. You can enable a fix from the option menu of this addon (currently"]..AccountAchievementFilter_getEnabled()..").")
 	end
 end
 
