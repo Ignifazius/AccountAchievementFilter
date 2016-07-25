@@ -1,13 +1,15 @@
 ## Title: Account Achievement Filter
-## Description: Adding a fourth Option to the Achievement frame, that shows only Achievements, that are not completed by this ACCOUNT.
+## Description: Adding a fourth option to the achievement frame, that shows only achievements, that are not completed by this ACCOUNT.
 ## Description-deDE: Fügt der Erfolgsübersicht eine vierte Option hinzu, welche nur Erfolge anzeigt, die auf dem ACCOUNT noch nicht erfüllt sind.
+## Description-ptBR: 
 ## Author: Ignifazius
 ## Interface: 70000
-## Version: 2.1
+## Version: 2.2
 ## SavedVariablesPerCharacter: WelcomeBool, BlizzardFixBool
 ## OptionalDeps: ElvUI
 
 localization.core.lua
 localization.de.lua
 localization.en.lua
+localization.pt.lua
 AccountAchievementFilter.lua

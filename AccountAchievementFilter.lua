@@ -99,7 +99,7 @@ function AccountAchievementFilter_CreateConfigFrame()
 	
 	configBottom = configFrame:CreateFontString(nil, "ARTWORK", "GameFontNormal")
     configBottom:SetPoint("BOTTOMLEFT", 16, 16)
-    configBottom:SetText("If you want to help translating this addon, visit\n http://wow.curseforge.com/addons/account-achievement-filter/ \nor write me a PM on Curse. Currently only German and English translations are available.")
+    configBottom:SetText("If you want to help translating this addon, visit\n http://wow.curseforge.com/addons/account-achievement-filter/ \nor write me a PM on Curse. Currently only German, English and Portuguese translations are available.")
 end
 
 function AccountAchievementFilter_FixBlizzardBug(bool)
