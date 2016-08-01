@@ -11,5 +11,6 @@ if GetLocale() == "deDE" then
     L["Fixes a current bug in GetCategoryNumAchievements(). This MAY break stuff in future blizzard updates."] = "Behebt einen Fehler in GetCategoryNumAchievements(). Dies KANN zu Fehlern in zukünfitgen Patches von Blizzard führen.";
 	L["Display welcome message"] = "Willkommensnachricht anzeigen";
     L["Enables the display of the welcome message after login."] = "Aktiviert die Willkommensnachricht beim Einloggen.";
+	L["This will become active after you reload. Reload UI now?"] = "Dies wird nach einem Interfaceneustart aktiv. Interface jetzt neu laden?";
 end
 

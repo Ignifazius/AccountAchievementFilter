@@ -125,14 +125,29 @@ function AccountAchievementFilter_FixBlizzardBug(bool)
 	return fix
 end
 
+
+StaticPopupDialogs["AAF_RELOADUI"] = {
+  text = L["This will become active after you reload. Reload UI now?"],
+  button1 = "Yes",
+  button2 = "No",
+  OnAccept = function()
+      ReloadUI()
+  end,
+  timeout = 0,
+  whileDead = true,
+  hideOnEscape = true,
+  preferredIndex = 3,  -- avoid some UI taint, see http://www.wowace.com/announcements/how-to-avoid-some-ui-taint/
+}
+
 function AccountAchievementFilter_FixBlizzardBugMENUBUTTON(bool)
-	if bool then
+	blizzFix = bool;
+	--[[if bool then
 	--DEFAULT_CHAT_FRAME:AddMessage(wname.." pinged by: |cffFF0000" .. ping_name .. "|r")
 		DEFAULT_CHAT_FRAME:AddMessage(L["|cff33FFFF AccountAchievementFilter|r: AV fix|cff33FF33 enabled|r. It will become active after you reload/relog."])
 	else
 		DEFAULT_CHAT_FRAME:AddMessage(L["|cff33FFFF AccountAchievementFilter|r: AV fix|cffFF0000 disabled|r. It will become active after you reload/relog."])
-	end
-	return AccountAchievementFilter_FixBlizzardBug(bool)
+	end]]--
+	StaticPopup_Show("AAF_RELOADUI")
 end
 
 function AccountAchievementFilter_getEnabled()

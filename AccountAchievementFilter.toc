@@ -5,8 +5,9 @@
 ## Notes-ptBR: Este addon adiciona uma quarta opção na guia de Conquista. Com esta opção, você pode esconder todas as conquistas concluídas, incluindo as que você fez com outros personagens na mesma conta.
 ## Author: Ignifazius
 ## Interface: 70000
-## Version: 2.2.1
-## SavedVariablesPerCharacter: WelcomeBool, BlizzardFixBool
+## Version: 2.3
+## SavedVariablesPerCharacter: WelcomeBool
+## SavedVariables: BlizzardFixBool
 ## OptionalDeps: ElvUI
 
 localization.core.lua
