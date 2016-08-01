@@ -37,16 +37,19 @@ function AccountAchievementFilter_AchievementFrame_GetCategoryNumAchievements_Ac
 	--print("debug: "..category)
 	local total, completed, missing = GetCategoryNumAchievements (category);
 	local TEMPmissing = total - completed;
-	if (not AchievementFrame_IsFeatOfStrength()) then
+	--print("before "..TEMPmissing)
+	--[[if (not AchievementFrame_IsFeatOfStrength()) then --seems do to... nothing?
 		--for i = total - missing + 1, total do
 		for i = total - TEMPmissing + 1, total do
 			local _, _, _, c1, _, _, _, _, _, _, _, _, c2, c3 = GetAchievementInfo(category, i);
 			if (c1 or c2 or c3) then
 				TEMPmissing = TEMPmissing - 1;
+				print("counting down")
 			end
 		end
-	end
+	end]]--
 	--return missing, 0, total - missing;
+	--print("after "..TEMPmissing)
 	return TEMPmissing, 0, total - TEMPmissing;
 end
 
@@ -117,7 +120,7 @@ function AccountAchievementFilter_FixBlizzardBug(bool)
 			{text=ACHIEVEMENTFRAME_FILTER_COMPLETED, func=AchievementFrame_GetCategoryNumAchievements_Complete}, --original
 			{text=ACHIEVEMENTFRAME_FILTER_INCOMPLETE, func=AchievementFrame_GetCategoryNumAchievements_Incomplete} , --original / unfixed
 			{text=ACHIEVEMENTFRAME_FILTER_ACCOUNT_INCOMPLETE, func=AccountAchievementFilter_AchievementFrame_GetCategoryNumAchievements_AccIncomplete} --new
-			}	
+			}
 	end
 	return fix
 end
@@ -151,10 +154,19 @@ function AccountAchievementFilter_WelcomeMessage()
 	end
 end
 
-function AccountAchievementFilter_AchievementFrame_GetCategoryNumAchievements_Incomplete (categoryID)
-	local numAchievements, numCompleted, numIncomplete = GetCategoryNumAchievements(categoryID);
-	local TEMPnumIncomplete = numAchievements - numCompleted;
-	return numIncomplete, 0, numAchievements-TEMPnumIncomplete;
+function AccountAchievementFilter_AchievementFrame_GetCategoryNumAchievements_Incomplete(categoryID)
+	local numAchievements, numCompleted, numIncomplete = GetCategoryNumAchievements(categoryID);	
+	local TEMPnumIncomplete = 0;
+	
+	if (not AchievementFrame_IsFeatOfStrength()) then 
+		for i = 1, numAchievements do
+			local _, _, _, c1, _, _, _, _, _, _, _, _, c2, c3 = GetAchievementInfo(categoryID, i);
+			if (not c1) or(c1 and not c2) then 
+				TEMPnumIncomplete = TEMPnumIncomplete + 1;
+			end
+		end
+	end
+	return TEMPnumIncomplete, 0, numAchievements-TEMPnumIncomplete;
 end
 
 function AccountAchievementFilter_refresh()
