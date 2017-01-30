@@ -22,37 +22,52 @@ end)
 
 function AccountAchievementFilter_addFourthOption()
 	ACHIEVEMENT_FILTER_ACCOUNT_INCOMPLETE = 4; -- add option 4
+	--ACHIEVEMENT_FILTER_ACCOUNT_TEST = 5;
+
 	ACHIEVEMENTFRAME_FILTER_ACCOUNT_INCOMPLETE = L["Account Incomplete"]; --set text for dropdownmenu of option 4
+	--ACHIEVEMENTFRAME_FILTER_ACCOUNT_TEST = L["TEST"];
 	local original_AchievementFrameFilters = AchievementFrameFilters;	--save original
 	AchievementFrameFilters = {  --replace original with extended version
 		{text=ACHIEVEMENTFRAME_FILTER_ALL, func= AchievementFrame_GetCategoryNumAchievements_All}, --original
 		{text=ACHIEVEMENTFRAME_FILTER_COMPLETED, func=AchievementFrame_GetCategoryNumAchievements_Complete}, --original
-		{text=ACHIEVEMENTFRAME_FILTER_INCOMPLETE, func=AchievementFrame_GetCategoryNumAchievements_Incomplete} , --original
-		{text=ACHIEVEMENTFRAME_FILTER_ACCOUNT_INCOMPLETE, func=AccountAchievementFilter_AchievementFrame_GetCategoryNumAchievements_AccIncomplete} --new
+		{text=ACHIEVEMENTFRAME_FILTER_INCOMPLETE, func=AccountAchievementFilter_AchievementFrame_GetCategoryNumAchievements_CharIncomplete}, --new
+        {text=ACHIEVEMENTFRAME_FILTER_ACCOUNT_INCOMPLETE, func=AchievementFrame_GetCategoryNumAchievements_Incomplete} --original
+		--{text=ACHIEVEMENTFRAME_FILTER_ACCOUNT_INCOMPLETE, func=AccountAchievementFilter_AchievementFrame_GetCategoryNumAchievements_AccIncomplete}--, --new
+		--{text=ACHIEVEMENTFRAME_FILTER_ACCOUNT_TEST, func=AccountAchievementFilter_AchievementFrame_GetCategoryNumAchievements_CharIncomplete}
 		}
 	
 	ACHIEVEMENT_FILTER_ACCOUNT_INCOMPLETE_EXPLANATION = L["Show all achievements not already completed by this ACCOUNT"]; --set explanation text for option 4
-	
+	--ACHIEVEMENT_FILTER_ACCOUNT_TEST_EXPLANATION = L["Test Explanation"]; --set explanation text for option 4
+
 	local orig_AchievementFrameFilterStrings = AchievementFrameFilterStrings; --save original
 	AchievementFrameFilterStrings = {ACHIEVEMENT_FILTER_ALL_EXPLANATION, --replace original with extended version
-ACHIEVEMENT_FILTER_COMPLETE_EXPLANATION, ACHIEVEMENT_FILTER_INCOMPLETE_EXPLANATION, ACHIEVEMENT_FILTER_ACCOUNT_INCOMPLETE_EXPLANATION};
+ACHIEVEMENT_FILTER_COMPLETE_EXPLANATION, ACHIEVEMENT_FILTER_INCOMPLETE_EXPLANATION, ACHIEVEMENT_FILTER_ACCOUNT_INCOMPLETE_EXPLANATION} --ACHIEVEMENT_FILTER_ACCOUNT_TEST_EXPLANATION};
 end
 		
-function AccountAchievementFilter_AchievementFrame_GetCategoryNumAchievements_AccIncomplete(category) --create function for option 4
+function AccountAchievementFilter_AchievementFrame_GetCategoryNumAchievements_AccIncomplete(category)
 	--print("debug: "..category)
 	local total, completed, missing = GetCategoryNumAchievements (category);
 	local TEMPmissing = total - completed;
+	return TEMPmissing, 0, total - TEMPmissing;
+end
+
+function AccountAchievementFilter_AchievementFrame_GetCategoryNumAchievements_CharIncomplete(category)
+	--print("debug: "..category)
+	local total, completed, missing = GetCategoryNumAchievements (category);
+	local TEMPmissing = 0
 	--print("before "..TEMPmissing)
-	--[[if (not AchievementFrame_IsFeatOfStrength()) then --seems do to... nothing?
+	if (not AchievementFrame_IsFeatOfStrength()) then --seems do to... nothing?
 		--for i = total - missing + 1, total do
-		for i = total - TEMPmissing + 1, total do
-			local _, _, _, c1, _, _, _, _, _, _, _, _, c2, c3 = GetAchievementInfo(category, i);
-			if (c1 or c2 or c3) then
-				TEMPmissing = TEMPmissing - 1;
-				print("counting down")
+		for i = 1, total do
+			--local id, name, points, completedB, month, day, year, description, flags, icon, rewardText, isGuildAch, wasEarnedByMe, earnedBy = GetAchievementInfo(category, i)
+			local _, _, _, completedB, _, _, _, _, _, _, _, _, wasEarnedByMe, _ = GetAchievementInfo(category, i)
+            --print(completedB, wasEarnedByMe, earnedBy)
+			if ((completedB and not wasEarnedByMe) or not completedB) then
+				TEMPmissing = TEMPmissing + 1;
+				--print("counting up")
 			end
 		end
-	end]]--
+	end
 	--return missing, 0, total - missing;
 	--print("after "..TEMPmissing)
 	return TEMPmissing, 0, total - TEMPmissing;
@@ -124,6 +139,7 @@ end
 function AccountAchievementFilter_WelcomeMessage()
 	if (WelcomeBool) then
 		DEFAULT_CHAT_FRAME:AddMessage(L["Welcome to|cff33FFFF AccountAchievementFilter|r!"])
+		--DEFAULT_CHAT_FRAME:AddMessage(L["Welcome to|cff33FFFF AccountAchievementFilter|r 3.0! Blizzard changed the default incomplete to account-incomplete, so this addon will now add the option they removed (everything should work as before)."])
 	end
 end
 

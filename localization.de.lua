@@ -6,6 +6,7 @@ if GetLocale() == "deDE" then
 	L["|cff33FFFF AccountAchievementFilter|r: AV fix|cffFF0000 disabled|r. It will become active after you reload/relog."] = "|cff33FFFF AccountAchievementFilter|r: AV fix|cffFF0000 deaktiviert|r. Dies wird nach einem reload/relog aktiv.";
 	L["Welcome to|cff33FFFF AccountAchievementFilter|r! There is a bug affecting the |cffFF9933incomplete|r option in your achievements. You can enable a fix from the option menu of this addon (currently"] = "WiIlkommen bei|cff33FFFF AccountAchievementFilter|r! Zur Zeit exisiert ein Fehler, welcher die|cffFF9933unvollständig|r Option in den Erfolgen beeinflusst. Ein Fix für dieses Problem kann im Menu dieses Addons aktiviert werden (zur Zeit ";
 	L["Welcome to|cff33FFFF AccountAchievementFilter|r!"] = "Willkommen bei|cff33FFFF AccountAchievementFilter|r!";
+	L["Welcome to|cff33FFFF AccountAchievementFilter|r 3.0! Blizzard changed the default incomplete to account-incomplete, so this addon will now add the option they removed (everything should work as before)."] = "Willkommen bei|cff33FFFF AccountAchievementFilter|r 3.0! Blizzard hat das Standardverhalten von unvollständig auf account-unvollständig geändert. Dieses Addon stellt nun die entfernte Funktion zur Verfügung (alles sollte wie gewohnt funktionieren)."
 	L["enabled"] = "aktiviert";
 	L["disabled"] = "deaktiviert";
 	L["Use AV \"incomplete\" fix"] = "AV-Fix nutzen";
