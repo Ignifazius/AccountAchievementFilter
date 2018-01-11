@@ -4,8 +4,8 @@
 ## Notes-deDE: Fügt der Erfolgsübersicht eine vierte Option hinzu, welche nur Erfolge anzeigt, die auf dem ACCOUNT noch nicht erfüllt sind.
 ## Notes-ptBR: Este addon adiciona uma quarta opção na guia de Conquista. Com esta opção, você pode esconder todas as conquistas concluídas, incluindo as que você fez com outros personagens na mesma conta.
 ## Author: Ignifazius
-## Interface: 70100
-## Version: 3.0
+## Interface: 70300
+## Version: 3.1
 ## SavedVariablesPerCharacter: WelcomeBool
 ## OptionalDeps: ElvUI
 

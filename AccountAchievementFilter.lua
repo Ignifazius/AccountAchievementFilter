@@ -91,7 +91,7 @@ end
 function AccountAchievementFilter_CreateCheckbox(label, description, onClick)
 	local check = CreateFrame("CheckButton", "IAConfigCheckbox" .. label, configFrame, "InterfaceOptionsCheckButtonTemplate")
 	check:SetScript("OnClick", function(self)
-		PlaySound(self:GetChecked() and "igMainMenuOptionCheckBoxOn" or "igMainMenuOptionCheckBoxOff")
+		PlaySound(self:GetChecked() and SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON or SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_OFF)
 		onClick(self, self:GetChecked() and true or false)
 	end)
 	check.label = _G[check:GetName() .. "Text"]
