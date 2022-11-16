@@ -56,7 +56,7 @@ function AccountAchievementFilter_AchievementFrame_GetCategoryNumAchievements_Ch
 	local total, completed, missing = GetCategoryNumAchievements (category);
 	local TEMPmissing = 0
 	--print("before "..TEMPmissing)
-	if (not AchievementFrame_IsFeatOfStrength()) then --seems do to... nothing?
+	--if (not AchievementFrame_IsFeatOfStrength()) then --seems do to... nothing?
 		--for i = total - missing + 1, total do
 		for i = 1, total do
 			--local id, name, points, completedB, month, day, year, description, flags, icon, rewardText, isGuildAch, wasEarnedByMe, earnedBy = GetAchievementInfo(category, i)
@@ -67,7 +67,7 @@ function AccountAchievementFilter_AchievementFrame_GetCategoryNumAchievements_Ch
 				--print("counting up")
 			end
 		end
-	end
+	--end
 	--return missing, 0, total - missing;
 	--print("after "..TEMPmissing)
 	return TEMPmissing, 0, total - TEMPmissing;
